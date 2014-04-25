@@ -5,15 +5,13 @@ import heart_panel.HeartInterface;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-
-import org.lwjgl.opengl.GLContext;
+import javax.swing.SwingWorker;
 
 import menu.MenuInterface;
 import cross_section_panel.CrossSectionInterface;
@@ -57,13 +55,22 @@ public class Main  {
 	}
 	
 	public static void removeHeartPanel() {
-		
-		heart.canvas.repaint();
-		heart.canvas.invalidate();
-		heart.canvas.revalidate();
-		frame.repaint();
-		frame.pack();
-		
+		SwingWorker worker = new SwingWorker<Void, Void>() {
+		    @Override
+		    public Void doInBackground() {
+		    	heart.canvas.validate();
+		    	heart.canvas.repaint();
+		    	frame.validate();
+				frame.repaint();
+				return null;
+		    }
+
+		    @Override
+		    public void done() {
+		        //Remove the "Loading images" label.
+		        }
+		};
+	
 		heart.startthread();
 	}
 

@@ -35,6 +35,7 @@ public class MenuMethods {
 	
 	static void exit() {
 		System.exit(0);
+		System.gc();
 	}
 
 	static void resetModel() {
