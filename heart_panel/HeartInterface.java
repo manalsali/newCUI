@@ -6,6 +6,8 @@ package heart_panel;
 
 import java.awt.BorderLayout;
 import java.awt.Canvas;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import javax.swing.JPanel;
 import javax.swing.SwingWorker;

@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import org.lwjgl.opengl.GLContext;
+
 import menu.MenuInterface;
 import cross_section_panel.CrossSectionInterface;
 
@@ -57,8 +59,11 @@ public class Main  {
 	public static void removeHeartPanel() {
 		
 		heart.canvas.repaint();
+		heart.canvas.invalidate();
+		heart.canvas.revalidate();
 		frame.repaint();
 		frame.pack();
+		
 		heart.startthread();
 	}
 

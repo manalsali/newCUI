@@ -1,6 +1,8 @@
 package opengl;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import javax.swing.SwingWorker;
@@ -149,7 +151,8 @@ public class Application {
 		z = z / (float) (points.size() / 1000);
 
 		try {
-			Display.setDisplayMode(new DisplayMode(800, 600));
+			//Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+			//Display.setDisplayMode(new DisplayMode(dim.width/2,dim.height/2));
 			Display.setParent(Main.heart.canvas);
 			Display.setVSyncEnabled(true);
 			Display.create();
